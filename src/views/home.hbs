@@ -1,0 +1,19 @@
+<main>
+    <h1>
+        Hola Coders esaaaa!!! Bienvenido {{ nombre }}
+    </h1>
+        <h2>{{ apellido }}</h2>
+        <div>
+            {{#if role}}
+                <h2>SI puede ver los productos!</h2>
+                {{#each products}}
+                    <p>Nombre del Producto {{ this.title }}</p>
+                    <p>Precio del Producto {{ this.price }}</p>
+                {{/each}}
+            {{else}}
+                <h2>No puede ver los productos!</h2>
+
+            {{/if}}
+        </div>
+</main>
+<script src="/js/home.js"></script>
