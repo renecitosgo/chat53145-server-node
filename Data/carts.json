@@ -1,0 +1,18 @@
+{
+  "idProximo": 2,
+  "carts": [
+    {
+      "id": 4,
+      "products": []
+    },
+    {
+      "id": 5,
+      "products": [
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}

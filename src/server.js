@@ -1,13 +1,13 @@
-import express from "express" 
+const express = require ("express") 
 // import usersRouter from "./routes/users-router.js"
-import productsRouter from "./routes/products-router.js"
-import viewsRouter from "./routes/views-router.js"
-import cartsRouter from "./routes/routes-carts.js"
-import { __dirname }  from "./utils.js"
-import { uploader } from "./multer.js"
-import handlebars from "express-handlebars"
-import { Server } from "socket.io"
-import { productsSocket } from "./utils/productsSocket.js"
+// import productsRouter from "./routes/products-router.js"
+const viewsRouter = require ("./routes/views-router.js")
+// import cartsRouter from "./routes/routes-carts.js"
+// import { __dirname }  from "./utils.js"
+// import { uploader } from "./multer.js"
+const handlebars = require ( "express-handlebars")
+const { Server } = require ("socket.io")
+const { productsSocket } = require ("./utils/productsSocket.js")
 
 const app = express()
 
@@ -28,7 +28,7 @@ app.use(express.static(__dirname + "/public"))
 
 
 // middleware
-app.use(productsSocket(io)) //permite modificar o agregar propiedades a la solicitud antes de que sean manejadas por el resto de la aplicación
+// app.use(productsSocket(io)) //permite modificar o agregar propiedades a la solicitud antes de que sean manejadas por el resto de la aplicación
 
 
 
@@ -42,20 +42,20 @@ app.set("view engine", "hbs")
 
 
 // para subir archivos
-app.use("/subir-archivo", uploader.single("myFile"), (req, res)=>{
-    if(!req.file){
-        return res.send("No se puede subir el archivo")
-    }
-    res.send("Archivo subido")
-})
+// app.use("/subir-archivo", uploader.single("myFile"), (req, res)=>{
+//     if(!req.file){
+//         return res.send("No se puede subir el archivo")
+//     }
+//     res.send("Archivo subido")
+// })
 
 app.use("/", viewsRouter)
 
 // app.use("/api/users", usersRouter)
 
-app.use("/api/products", productsRouter)
+// app.use("/api/products", productsRouter)
 
-app.use("/api/carts", cartsRouter)
+// app.use("/api/carts", cartsRouter)
 
 
 
